@@ -1,0 +1,88 @@
+Java 
+exception handling, collections(tree, graph)
+Date timeAPI, Optional, Comparable vs Comparator.. generics, recursion, memory management & garbage collection,
+file handling, binomial heap, range tree.. dequeue and queue, multithreading & concurrency
+core java - super, this, final keywords
+
+codekata -> walkthrough --> done
+
+javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css
+
+Git -> clear basics -> adding into repository, git init, git add, git commit, git push, stash,.. 
+
+git to be covered : fetch, merge, rebase, status, pull, git branching
+
+sql -> from constraints, jdbc connectivity
+
+
+*************************
+18/04/24.
+matrix problem
+reading i/p from user
+codekata
+
+Problem solving skills -> 
+
+divide and conquer..
+
+IDE -> eclipse, sts (spring tool suite) -> almost similar
+IntelliJ -> advanced features.. two types 1. community edition (free and open source), 2. ultimate edition (paid, free tier for first 15-30days)
+
+jdk -> open jdk : oracle/amazon
+
+jdk version should be compatible with IDE..
+
+version 1 -> your game app..
+playstore/app store -> version 2.. 
+
+22/04
+
+New Project -> select language, select build tool -> maven, gradle
+
+packages -> classes -> methods/functions -> objects or variables (local & global)
+
+.jar(.exe) -> build tools..
+
+core java - super, this, final keywords: 
+
+this : refers to current object 
+super : refers to superclass or parent methods or variables
+final : can't modify a value (variable), in case of class -> can't extend., method level -> can't overrride method
+
+immutable -> can't modify 
+	. make your class as final
+	. make your fields as private
+	. you will not have setters only getters
+	. mutable fields final
+	. initialize using a constructor
+
+generics -> ensure type safety
+	generic class(List), type parameters : T -> type, E -> element, K -> key, N -> number, V -> value
+	generic method
+	type casting -> from one data type you are converting to datatype
+
+recursion -> making a function to call itself
+
+collections -> framework (store data & manipulate data) -> search, sort, insertion, manipulation, deletion etc
+
+				Iterable(interface)
+				    ..
+
+				  Collection
+
+		List        Queue        Set     Map  
+
+
+List -> insertion order
+	ArrayList :  non-synchrnoized : add, remove, contains, get
+	LinkedList :  non-synchrnoized : add, remove, contains, get
+	Vector : synchronized : add, remove, contains, get
+		. stack : push(add), insertion order Last In first Out : pop(remove), peek(top element), get
+
+synchronous -> one action happens only at one time.. Collections.synchronizedList()
+
+Queue : First in First Out : poll, remove, contains, peek, element
+	. Priority queue - no insertion order
+	. array dequeue - insertion order
+
+Dequeue : add/delete the elements either at last or first position	
