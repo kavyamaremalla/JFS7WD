@@ -10,10 +10,11 @@ public class ThisKeyWord {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         ThisKeyWord words = new ThisKeyWord(2,3);
         System.out.println(words.x + " " + words.y);
+
     }
 
 }

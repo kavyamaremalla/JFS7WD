@@ -1,12 +1,12 @@
 Java 
-exception handling, collections(tree, graph)
-Date timeAPI, Optional, Comparable vs Comparator.. generics, recursion, memory management & garbage collection,
-file handling, binomial heap, range tree.. dequeue and queue, multithreading & concurrency
-core java - super, this, final keywords
+core java - super, this, final keywords, generics, recursion, collections(tree, graph,dequeue and queue), Optional (streams, lambda, functional interface),exception handling, Date timeAPI,
+
+  Comparable vs Comparator.. memory management & garbage collection,
+file handling, multithreading & concurrency
 
 codekata -> walkthrough --> done
 
-javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css
+javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css (margin, padding)
 
 Git -> clear basics -> adding into repository, git init, git add, git commit, git push, stash,.. 
 
@@ -35,7 +35,7 @@ jdk version should be compatible with IDE..
 version 1 -> your game app..
 playstore/app store -> version 2.. 
 
-22/04
+22/04/24
 
 New Project -> select language, select build tool -> maven, gradle
 
@@ -73,7 +73,7 @@ collections -> framework (store data & manipulate data) -> search, sort, inserti
 		List        Queue        Set     Map  
 
 
-List -> insertion order
+List -> insertion order, any number of null values
 	ArrayList :  non-synchrnoized : add, remove, contains, get
 	LinkedList :  non-synchrnoized : add, remove, contains, get
 	Vector : synchronized : add, remove, contains, get
@@ -86,3 +86,44 @@ Queue : First in First Out : poll, remove, contains, peek, element
 	. array dequeue - insertion order
 
 Dequeue : add/delete the elements either at last or first position	
+
+23/04/24
+
+Set -> doesn't allow duplicates
+	hashSet: not following insertion order, add, remove, contains., no indexing concept so get.., one null will be allowed
+	linkedhashset : follows insertion order, one null can be allowed
+	treeSet : ascending order, no null values allowed, in case of null values -> run time exception
+
+Map : store data in form of keys and values.. Keys will be unique, values can be duplicated
+
+
+	Map<Integer, String> hashMap = new HashMap<>();
+	hashMap.get(key) -> values
+	hashMap.remove(1); -> remove both key and value
+	hashMap.keySet() -> give you all the keys
+	hashMap.containsKey(1) -> to check keys
+	hashMap.containsValue("jill") -> to check values
+	hashMap.entrySet() -> keys and values
+
+		hashMap : One null key and multiple null values.
+		treemap -> doesn't allow null key
+
+hashtable, linked hash map.
+
+stream API -> to process any collection of data	
+
+Optional -> filter, map, entryset.stream
+
+terenary operator -> condition ? true (statement will be executed) : false (whatever written here will be executed) --> if-else
+
+Functional Interface -> @FunctionalInterface,
+
+single abstract method, default or static or private methods in this..
+
+abstract method in an interface should be overridden by the implemented class..
+
+Exception Handling:  (try, catch, finally, throw, throws)
+
+	custom exception : extends exception, call parent constructor
+
+DateTime API : changes in Java 8 -> Zoned, LocalDateTime, ChronoUnits, LocalDate, LocalTime, Period, Duration	
