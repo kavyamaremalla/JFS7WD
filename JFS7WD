@@ -1,18 +1,18 @@
 Java 
-core java - super, this, final keywords, generics, recursion, collections(tree, graph,dequeue and queue), Optional (streams, lambda, functional interface),exception handling, Date timeAPI,
+core java - super, this, final keywords, generics, recursion, collections(tree, graph,dequeue and queue), Optional (streams, lambda, functional interface),exception handling, Date timeAPI,Comparable vs Comparator.. memory management & garbage collection,
+file handling, 
 
-  Comparable vs Comparator.. memory management & garbage collection,
-file handling, multithreading & concurrency
+multithreading & concurrency
 
-codekata -> walkthrough --> done
+Git -> clear basics -> adding into repository, git init, git add, git commit, git push,  
+
+git to be covered : stash, fetch, merge, rebase, status, pull, git branching
+
+sql -> from scratch, jdbc connectivity
 
 javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css (margin, padding)
 
-Git -> clear basics -> adding into repository, git init, git add, git commit, git push, stash,.. 
-
-git to be covered : fetch, merge, rebase, status, pull, git branching
-
-sql -> from constraints, jdbc connectivity
+codekata -> walkthrough --> done -->  i/p stream & o/p stream.. java new features... 
 
 
 *************************
@@ -90,7 +90,7 @@ Dequeue : add/delete the elements either at last or first position
 23/04/24
 
 Set -> doesn't allow duplicates
-	hashSet: not following insertion order, add, remove, contains., no indexing concept so get.., one null will be allowed
+	hashSet: not following insertion order, add, remove, contains., no indexing concept so get is not present.., one null will be allowed
 	linkedhashset : follows insertion order, one null can be allowed
 	treeSet : ascending order, no null values allowed, in case of null values -> run time exception
 
@@ -105,8 +105,8 @@ Map : store data in form of keys and values.. Keys will be unique, values can be
 	hashMap.containsValue("jill") -> to check values
 	hashMap.entrySet() -> keys and values
 
-		hashMap : One null key and multiple null values.
-		treemap -> doesn't allow null key
+	hashMap : One null key and multiple null values.
+	treemap -> doesn't allow null key
 
 hashtable, linked hash map.
 
@@ -122,8 +122,106 @@ single abstract method, default or static or private methods in this..
 
 abstract method in an interface should be overridden by the implemented class..
 
+Types of functional interfaces -> Function, Consumer, Supplier, Predicate
+
 Exception Handling:  (try, catch, finally, throw, throws)
 
 	custom exception : extends exception, call parent constructor
 
 DateTime API : changes in Java 8 -> Zoned, LocalDateTime, ChronoUnits, LocalDate, LocalTime, Period, Duration	
+
+24/04/24:
+
+Comparable vs Comparator.. file handling, memory management & garbage collection,
+
+Comparable / Comparator -> sorting
+
+File handling : create, read, update, delete, search
+
+Asssignment:
+create a folder -> 10 excel files with different names, using Java check if file exists or not and then if file is present delete a particular file. FileInputStream, type of functional interface
+
+memory management & garbage collection:
+
+Object destruction in JVM -> handled by garbage collector(GC), however few objects may not be eligible for GC then you will know to know how your memory is managed.
+
+-Xmx2g
+-Xms1g
+
+string Pool -> FlyWeight Design Pattern
+
+25/04/2024:
+
+multithreading & concurrency, git remaining commands
+
+threads.. running llely, 
+concurrency -> illusion that threads run parallely but real-time, they actually switch..
+
+thread lifecycle -> new thread -> start() -> runnable -> run() -> runnning -> either wait for another thread or dead (execution ends)
+
+payment process -> thread
+receipt -> other thread..
+
+when you wait for some thread to finish execution it's synchronous 
+sign up to a site -> welcome email, even though you don't buy anything.. if you are not waiting for other thread or depending thread to finish execution -> asynchronous..
+
+Thread Prioroties -> MAX_PRIORITY -> 10.. 
+
+extending a thread, implementing Runnable/Callable -> create  a multi threaded environment.
+
+Thread.interrupted -> wake up a sleeping thread
+
+   System.out.println(Thread.currentThread().getName());
+   Thread.currentThread().setName("Custom Name");
+
+ Thread.join(); -> before start and after start.
+ thread.setPriority(10) -> high
+
+ one thread waiting for other thread to initialize a communication or to finish execution -> dead lock sceanrio..
+
+synchronized keyword..
+avoid nested loops, not lock unneccesarily, thread.join..
+
+Git -> clear basics -> adding into repository, git init, git add, git commit, git push,  
+
+git to be covered : stash, fetch, merge, rebase, status, pull, git branching
+
+remote -> github profile
+local -> your local machine
+
+changes to be seen -> remote to local -> fetch
+changes to be written and not seen -> git merge
+changes to be seen and written to local -> git pull
+
+git log -> history of changes
+
+delete a commit from branch :
+
+	git reset --hard commitId where you need to point 
+	git push origin HEAD --force
+
+branching:
+
+merge : according to commit times, it will add to base repo (main/master)
+rebase : put your changes at first
+squash -> put your changes first but as a single commit..
+
+branch -> git create branch_name
+send changes to remote-> git push --set-upstream origin Bug_1616382
+
+or directly from your remote repo..
+
+switch your branches locally -> git checkout branch_name
+
+upstream -> sending changes and receiving changes
+downstream -> be default..from your branch
+
+merge -> git merge branch_name (all the changes in other branch can be brought to your current branch)
+
+Pull Request -> PR : to get approvals/reviews you will be raising a PR.
+
+git stash -> put your local changes into a temporary place, get your remote changes
+git stash show
+git stash pop -> brings you stack of latest change
+git stash apply ==== stash apply stash@{0} / last changes stash apply stash@{7}
+
