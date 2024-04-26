@@ -152,7 +152,7 @@ string Pool -> FlyWeight Design Pattern
 
 25/04/2024:
 
-multithreading & concurrency, git remaining commands
+multithreading & concurrency, git commands
 
 threads.. running llely, 
 concurrency -> illusion that threads run parallely but real-time, they actually switch..
@@ -224,4 +224,151 @@ git stash -> put your local changes into a temporary place, get your remote chan
 git stash show
 git stash pop -> brings you stack of latest change
 git stash apply ==== stash apply stash@{0} / last changes stash apply stash@{7}
+
+26/04/24: SQL Database & java Connectivity with SQL example
+
+database -> organized collection of storing data..
+
+DBMS -> Database Management System -> users & db...
+
+	- hierarchal -> IMS
+	- relational -> RDBMS --> SQL.. structured query language --> MySQL, MS SQL, PL/SQL(postgres),Oracle etc
+	- object oriented -> Mongodb, Apache Cassandra, dynamodb, maria db, IBM Db2 etc -> non-structured db
+	- network
+	- non-relational
+	- ditributed (multiple physical locations)
+	- cloud, graph db
+
+signup email -> login creds, email and pwd -> store these details in your db..
+
+database -> collection of tables -> table has rows and columns
+
+Installed MySQL Installer : https://dev.mysql.com/downloads/installer/
+
+under this -> workbench, server,shell(optional)
+
+dbeaver -> db tool -> connects to any sql db : https://dbeaver.io/download/
+
+DB:
+create database dbName
+backup of your tables -> right click on a table & select export wizard..
+drop database dbName 
+
+show databases
+
+Table:
+
+create table dbName.tableName(ColumnName1 ColumnDataType1, ColumnName2 ColumnDataType2, etc )
+
+create a new table from existing table:
+
+create table dbName.newTableName AS Select existingColumnName1, existingColumnName2 from existingTableName
+
+show tables
+
+drop table tableName -> will delete the structure of your table
+truncate table tableName -> will delete the data(rows) without effecting your table structure
+	delete from schools; -> data from table -> delete rows, preseve columns
+	delete from students where SchoolId = 6; for particular rows
+
+truncate -> where condition is not present, can't rollback , DDL -> Data Definition Language(deals with table) : truncate,drop,alter,create table
+delete -> where condition, rollback(insert), DML -> Data Manipulation Language(deals with data) : insert, update, select, delete etc
+
+
+Insert into students(SchoolId,SchoolName) values(1,"abc"); -> add data newly into table
+Select * from students; -> read data
+	Select * from students where condition;
+Delete from students where SchoolId = 1; -> removes particular data
+  Delete from students;  -> removes all data from students
+update students set SchoolName = "Stephens Mary" -> for all rows
+	update students set SchoolName = "kalasala" where SchoolId = 2 -> for particular row  
+
+
+Adding column to existing table
+	Alter table students
+	Add grades int;
+
+Deleting an existing column
+
+	alter table students
+	drop column isCertified;
+
+Rename an existing column
+	Alter table students
+	rename column grades to marks;
+
+Add a column at particular position
+		Alter table students
+		Add isCertified boolean after SchoolName;
+
+change the datatype of a column
+		Alter table students
+		modify column marks varchar(10);
+
+Constraints : 
+
+	PK -> Primary Key : not null and unique, one table can have one primary key
+	FK -> creates a link between two tables
+	Not null, Auto increment, unique, check, default
+
+create table manager(
+	ManagerId int not null Unique Auto_INCREMENT,
+    FirstName nvarchar(50),
+    LastName nvarchar(50),
+    Primary key(ManagerId)
+    );
+
+create table employee(
+	EmployeeId int not null Unique Auto_INCREMENT,
+    ManagerId int,
+    FirstName nvarchar(50),
+    LastName nvarchar(50),
+    Age int Default 18,
+    Country nvarchar(50) default "India",
+    Primary key(EmployeeId),
+    Foreign key(ManagerId) references manager(ManagerId),
+    Check (Age>=18)
+);
+
+Alias -> give some temporary name to a table or a  column
+
+coalsece->
+
+join -> SELECT columns from table1 join table2 on table1.column=table2.column
+
+subquery/inner query -> select * from employee where ManagerId in (select ManagerId from manager); 
+select * from employee where ManagerId not in (select ManagerId from manager); 
+select * from (select * from manager where FirstName is not null && ManagerId > 1) employee
+where ManagerId is not null;
+
+select * from employee where EmployeeId not between 1 and 2;
+select * from employee where EmployeeId between 1 and 2;
+
+>,<, ==, !=
+
+select coalesce(firstName,LastName) as FullName from manager;
+
+\count... give you number of records
+distinct -> unique records
+
+select left(LastName,2) as ExtractedName from manager;
+select right(LastName,2) as ExtractedName from manager;
+
+limit/top 2 -> to certain number of records
+select * from manager order by ManagerId desc;
+
+Stored Procedure:
+
+USE `schools`;
+DROP procedure IF EXISTS `manager`;
+
+DELIMITER $$
+USE `schools`$$
+CREATE PROCEDURE `manager` ()
+BEGIN
+select * from manager;
+END$$
+
+DELIMITER ;
+
 
