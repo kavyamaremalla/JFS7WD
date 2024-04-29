@@ -1,8 +1,6 @@
 Java 
 core java - super, this, final keywords, generics, recursion, collections(tree, graph,dequeue and queue), Optional (streams, lambda, functional interface),exception handling, Date timeAPI,Comparable vs Comparator.. memory management & garbage collection,
-file handling, 
-
-multithreading & concurrency
+file handling, multithreading & concurrency
 
 Git -> clear basics -> adding into repository, git init, git add, git commit, git push,  
 
@@ -10,10 +8,9 @@ git to be covered : stash, fetch, merge, rebase, status, pull, git branching
 
 sql -> from scratch, jdbc connectivity
 
-javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css (margin, padding)
-
 codekata -> walkthrough --> done -->  i/p stream & o/p stream.. java new features... 
 
+javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css (margin, padding) -> react course videos will be received.
 
 *************************
 18/04/24.
@@ -225,7 +222,7 @@ git stash show
 git stash pop -> brings you stack of latest change
 git stash apply ==== stash apply stash@{0} / last changes stash apply stash@{7}
 
-26/04/24: SQL Database & java Connectivity with SQL example
+******** 26/04/24: SQL Database & java Connectivity with SQL example *******
 
 database -> organized collection of storing data..
 
@@ -247,7 +244,7 @@ Installed MySQL Installer : https://dev.mysql.com/downloads/installer/
 
 under this -> workbench, server,shell(optional)
 
-dbeaver -> db tool -> connects to any sql db : https://dbeaver.io/download/
+dbeaver -> db tool -> connects to any db : https://dbeaver.io/download/
 
 DB:
 create database dbName
@@ -283,6 +280,7 @@ Delete from students where SchoolId = 1; -> removes particular data
 update students set SchoolName = "Stephens Mary" -> for all rows
 	update students set SchoolName = "kalasala" where SchoolId = 2 -> for particular row  
 
+ALTER:
 
 Adding column to existing table
 	Alter table students
@@ -332,9 +330,8 @@ create table employee(
 
 Alias -> give some temporary name to a table or a  column
 
-coalsece->
-
 join -> SELECT columns from table1 join table2 on table1.column=table2.column
+	 - Inner join, outer join, cross join(cartesian join), left, right
 
 subquery/inner query -> select * from employee where ManagerId in (select ManagerId from manager); 
 select * from employee where ManagerId not in (select ManagerId from manager); 
@@ -347,6 +344,7 @@ select * from employee where EmployeeId between 1 and 2;
 >,<, ==, !=
 
 select coalesce(firstName,LastName) as FullName from manager;
+coalsece -> (FirstName, LastName, n .. fields) -> it picks the first non-null value
 
 \count... give you number of records
 distinct -> unique records
@@ -354,10 +352,11 @@ distinct -> unique records
 select left(LastName,2) as ExtractedName from manager;
 select right(LastName,2) as ExtractedName from manager;
 
-limit/top 2 -> to certain number of records
+limit/top 2 -> to get certain number of first records
 select * from manager order by ManagerId desc;
+select * from employee limit 3 offset 2;
 
-Stored Procedure:
+Stored Procedure: for sql
 
 USE `schools`;
 DROP procedure IF EXISTS `manager`;
@@ -366,9 +365,117 @@ DELIMITER $$
 USE `schools`$$
 CREATE PROCEDURE `manager` ()
 BEGIN
-select * from manager;
+select * from manager; // query.. n number of lines here
 END$$
 
 DELIMITER ;
 
+29/04/24:
 
+union & union all on two or more tables
+
+select ManagerId from employee union select ManagerId from manager union select StudentId from student;
+
+select ManagerId from employee union all select ManagerId from manager
+
+Aggregation : mathematical functions : multiple row functions
+	- count : group by
+	- min
+	- max
+	- sum
+	- avg
+	- like : select * from employee where FirstName like '%John%';
+			 select * from employee where FirstName like 'John__';
+
+
+INDEX : fetch data from db in a fast way..
+
+
+array - [1,2,3,4,5,6,7,8,9,10] 
+		--> linear search : for loop, 10 times.. complexity : O(n)
+		--> binary search : divide your loop into half & you will search left & right --> 3 times.. O(log n)
+
+select FirstName from employee;
+
+create index idx_firstName
+on employee(FirstName);
+
+show indexes from employee;
+
+alter table employee
+drop index idx_firstName;
+
+types of index -> clustered index(physical data) & non-clustered index(address of your physical data)..
+
+n number of indices in a table.. can effect performance of write operations
+
+master db -> write operations 
+slave db -> copy of master -> read operations, indexes.. after particular period of time in case of new records -> copy from master db (syncing)
+
+having clause:
+
+SELECT COUNT(EmployeeId), age
+FROM employee
+GROUP BY age
+HAVING COUNT(EmployeeId) > 0
+ORDER BY COUNT(EmployeeId) DESC;
+
+JDBC -> Java database connectivity
+	- connectivity to sql, IDE build system
+	- through maven
+
+****************** MONGODB *****************
+
+structure of data (columns) is not unique/changes from one row to other row -> no sql
+
+to bring data -> join -> slow process
+
+to avoid this -> JSON object.. Javascript Object Notation
+ 
+ {
+ 	"empId" : 2;
+ }
+
+in sql -> db -> table -> records -> rows & columns
+in mongo -> db -> collections -> documents -> json objects (can be unique)
+
+ {
+ 	"empId" : 2;
+ 	"name" : "John"
+ }
+
+  {
+ 	"empId" : 3;
+ 	"name" : "Bob",
+ 	eventsAttended : [
+ 		"EventName1" : date,
+ 		"EventName2" : date,
+ 	]
+ }
+
+ https://www.mongodb.com/try/download/community -> server download
+ For shell : https://www.mongodb.com/try/download/shell
+ For GUI : https://www.mongodb.com/try/download/compass or https://robomongo.org/
+
+Commands:
+
+cls -> clear ur screen
+show dbs
+use databaseName -> if you have db use the db or else create a new db
+db.dropDataBase; -> delete a db
+
+db.createCollection("collectionName")
+show collections
+db.collectionName.drop()
+
+Insert :
+
+	one ->  db.students.insertOne({name: "Peter", age : 15, dateOfJoining : Date(), isCertified : true})
+	many -> db.students.insertMany([{ name : "Parker", age : 14, dateOfJoining: Date(), certificates : 2} , { name : "John", age : 17, certificates : 3}])
+
+Read/Fetch data:
+
+	db.students.find() -> all documents
+	db.students.findOne() -> first document
+	db.students.find({name : "Parker"}) -> where name is parker
+	db.students.find({name : "Parker", age : 13}) -> where name is parker and age is 13
