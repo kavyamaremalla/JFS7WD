@@ -12,6 +12,10 @@ codekata -> walkthrough --> done -->  i/p stream & o/p stream.. java new feature
 
 javascript -> 1/2hr only taken, but not clear.. bootstrap.. html and css (margin, padding) -> react course videos will be received.
 
+brush up of html & css, overview of bootstrap -> one session since the session was fast
+
+js -> completely
+
 *************************
 18/04/24.
 matrix problem
@@ -372,9 +376,9 @@ DELIMITER ;
 
 29/04/24:
 
-union & union all on two or more tables
+union & union all on two or more tables -- columns level check
 
-select ManagerId from employee union select ManagerId from manager union select StudentId from student;
+select ManagerId from employee union select ManagerId from manager union select StudentId from student; -- 3tables
 
 select ManagerId from employee union all select ManagerId from manager
 
@@ -390,12 +394,11 @@ Aggregation : mathematical functions : multiple row functions
 
 INDEX : fetch data from db in a fast way..
 
-
 array - [1,2,3,4,5,6,7,8,9,10] 
 		--> linear search : for loop, 10 times.. complexity : O(n)
 		--> binary search : divide your loop into half & you will search left & right --> 3 times.. O(log n)
 
-select FirstName from employee;
+select FirstName from employee; // before index normal pk order, after index, it gives dictionary order
 
 create index idx_firstName
 on employee(FirstName);
@@ -462,7 +465,7 @@ Commands:
 cls -> clear ur screen
 show dbs
 use databaseName -> if you have db use the db or else create a new db
-db.dropDataBase; -> delete a db
+db.dropDatabase(); -> delete a db
 
 db.createCollection("collectionName")
 show collections
@@ -479,3 +482,81 @@ Read/Fetch data:
 	db.students.findOne() -> first document
 	db.students.find({name : "Parker"}) -> where name is parker
 	db.students.find({name : "Parker", age : 13}) -> where name is parker and age is 13
+
+30/04/24 : remaining mongo commands : read queries, update, delete, operators(array), execution stats, index
+
+	 db.students.find({},{name : "Parker", age:13}) // projection object
+	 db.students.find({},{name : "Parker", _id:0}) // 0 or 1 is applicable only for id not on other fields
+
+Update : 
+
+	 db.students.updateOne({certificates:2}, {$set:{age:16}}) : only modifies first matched record
+	 db.students.updateMany({certificates:2}, {$set:{age:16}}) : modifies all the matched records
+	 db.students.updateMany({certificates:2}, {$set:{name : "Jill", age:16, lastModifiedDate: Date()}})
+	 	add a new field to existing document
+	 db.students.updateOne({certificates:5}, {$set:{name : "Jill", age:16, lastModifiedDate: Date()}}, {upsert:true})
+	   if you don't have data, inserts data else modifies data
+
+Operators: https://www.mongodb.com/docs/manual/reference/operator/update/
+
+	db.students.updateMany({}, {$inc:{certificates:1}}) -> if nothing matches inserts the field else increments with the specified digit.
+	db.students.updateMany({name:"Jill"},{$currentDate:{LastModifiedDate:true, ModifiedDate:{$type:'date'}}})
+	 	pass any parameter in the first query braces.. currentDate setting in case of null or updating..
+	db.students.updateMany({name:"Parker"}, {$currentDate:{LastModifiedDate:true, ModifiedDate:{$type:'date'}}}, {upsert:true}) -> inserts a record if document is  not present
+	 $rename, $set, $unset -> try to write queries --> assignment
+
+Array operators: 
+
+	 db.students.updateMany({}, {$addToSet:{marks : {$each : [67,87,89]}}}) -> add array to all fields based on where condition
+	 db.students.updateMany({}, {$pop:{marks: -1}}) -> removed 0th index element
+	 db.students.updateMany({}, {$pop:{marks: 1}}) -> removed last index element
+	 db.students.updateMany({}, {$addToSet:{marks : {$each : [67,89]}}}) -> adds at last index
+ 	 db.students.updateMany({}, {$push:{marks: 100}}) -> adds at last index
+ 	 db.students.updateMany({}, {$push:{marks: {$each:[82], $position:1}}}) -> at particular index to add an element
+ 	 db.students.updateOne({name:"Jill"}, {$pull:{marks:{$gt:90}}}) --> removed 100 marks for jill
+ 	 db.students.updateOne({name:"Jill"}, {$pullAll:{marks:[82]}}) -> removes the elements in array for jill
+
+ 	 try adding and updating a map object in a document
+
+ 	 // Update an existing document to add a map
+	db.collection.updateOne(
+  	{ _id: ObjectId("document_id") }, // Specify the document to update (replace "document_id" with the actual ID)
+  	{ $set: { myMap: { key1: "value1", key2: "value2", key3: "value3" } } } // Set the map field with key-value pairs
+	);
+
+	// Insert a new document with a map
+	db.collection.insertOne(
+  	{ myMap: { key1: "value1", key2: "value2", key3: "value3" } } // Insert a document with a map field
+	);
+
+
+Delete Operations:
+	
+	db.students.deleteOne({}) -> removes first record
+	db.students.deleteMany({}) -> removes all records
+	db.students.deleteMany({name:"Packerson"}) -> deletes those records which satisfy the where condition
+
+	Execution Stats : db.students.find({certificates:3}).explain("executionStats") -> gives all the detailed info on the query.
+
+	Index :
+
+		db.students.createIndex({'certificates':1}) -> 1 is ascending order, -1 descending order
+
+		again check the execution stats, the doc examined count decreases.
+
+		db.students.getIndexes() -> see available indexes
+
+		db.students.dropIndex("certificates_1") -> delete an index
+
+			types : single field -> on one field
+			        compound -> two fields index
+			        multikey -> array
+			        text -> string
+			        wildcards -> fields varying from doc to doc
+			        hashed index -> hashed mechanism
+			        geospatial index -> 2dsphere, legacy coordinates..
+
+
+02/04/24 : aggregate functions, mapping a collection to array, var, validation in mongo, connect mongo to java
+
+
