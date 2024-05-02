@@ -246,7 +246,9 @@ database -> collection of tables -> table has rows and columns
 
 Installed MySQL Installer : https://dev.mysql.com/downloads/installer/
 
-under this -> workbench, server,shell(optional)
+under this -> workbench, server,shell
+
+shell -> https://www.mongodb.com/try/download/shell : download msi
 
 dbeaver -> db tool -> connects to any db : https://dbeaver.io/download/
 
@@ -557,6 +559,93 @@ Delete Operations:
 			        geospatial index -> 2dsphere, legacy coordinates..
 
 
-02/04/24 : aggregate functions, mapping a collection to array, var, validation in mongo, connect mongo to java
+02/05/24 : comparison operations, aggregate functions, mapping a collection to array, var, validation in mongo, connect mongo to java
+
+Comparison : =, !=, > , >=, < , <=, in range and not in range
+
+		db.students.find({product_price : {$eq : 655}})
+		db.students.find({product_price : {$ne : 655}})
+		db.students.find({product_price : {$gte : 655}})
+		db.students.find({product_price : {$gt : 655}})
+		db.students.find({product_price : {$lt : 655}})
+		db.students.find({product_price : {$lte : 655}})
+		db.students.find({marks : {$in:[82,67]}}) -> for an array/field
+		db.students.find({marks : {$nin:[67]}}) -> for an array/field
+
+Query Operators : https://www.mongodb.com/docs/manual/reference/operator/
+
+Aggregate functions/operations/pipelines :
+
+	 var profit = db.students.aggregate([{$match:{product_price:{$gt:474}}}])
+	 	profit -> get results of above query.
+
+	 db.students.aggregate([{$match:{product_price:{$gt:474}}}, {$count:"totalQuantity"}])
+      result = [ { totalQuantity: 5 } ]
+
+     db.students.aggregate([{$match:{product_price:474}}])
+     
+     db.students.aggregate([{$limit:3}]) -> first 3 records
+
+     db.students.aggregate(([{$match: {product_price : {$gt: 70}}},{$group : {_id:"$product_material", totalPrice:{$sum: {$multiply:["$product_price", "$quantity"]}}}}, {$sort: {totalPrice: -1}}, {$limit:5}, {$project: {"_id":0}}]))
+
+     join two collections:
+
+      db.students.aggregate([{$lookup:{from:"products", localField:"_id", foreignField:"_id", as:"Details of the product"}}])
+
+      https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/
+
+var/const -> you can store your queries.
+
+	const priceOperationStu = db.students.find().map(function(e){return e.product_price * 2}).toArray();
+	NaN -> not a number
+	priceOperationStu.length -> size of array
+
+	for (const myElement of priceOperationStu){print ("Product price is: " + myElement/2)}
+
+Validation in mongoDb, validate your schema:
+
+registering student -> age of student dob year > 2010, int.. mobile num is mandatory, address.. validation Level : warn or error..
+
+	json/bson javascript/ binary java script
+
+db.createCollection("student", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "year", "mobileNumber"],
+         properties: {
+            name: {
+               bsonType: "string",
+               description: "Must be a string and this is a required field"
+            },
+            year: {
+               bsonType: "int",
+               minimum: 2015,
+               maximum: 3000,
+               description: "Must be an integer. This is the date of birth year and should be > 2014 and < 3000"
+            },
+            mobileNumber: {
+               bsonType: "long"
+            },
+            address: {
+               bsonType: "string"
+            }
+         }
+      }
+   }, validationAction:"error" / "warn"
+})
+
+db.student.insertOne({name: "Peter", age : 15, dateOfJoining : Date(), isCertified : true, mobileNumber : NumberLong("9876454"), year :  2001})
 
 
+Mongo to Java connectivity : add jar and write code
+
+UI: vscode -> download
+
+	--> html inspected and just saw basics
+	-> semantics -> header, footer, article/section/nav-bar
+
+margin, padding
+To be discussed	responsiveness in a page 
+bootstrap
+js
