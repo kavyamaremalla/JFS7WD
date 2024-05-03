@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms HTML Page</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body style="background-color: beige">
+
+    <form action="demo.html" target="_blank" method="post" autocomplete="off" novalidate>
+
+      <label for="email"> Email</label> <br>
+      <input type="email" id="email" name="email" value="test@gmail.com" form="form.html" > <br> <br>
+
+      <label for="password">Password</label> <br>
+      <input type="password" id="password" name="password" placeholder="password" maxlength="4"> <br> <br>
+
+      <input type="submit" onclick="alert('Logged in!')"> <br><br>
+
+      <textarea name="message" > Tell about yourself in 255 words</textarea>
+     
+    </form>
+  </body>
+</html>

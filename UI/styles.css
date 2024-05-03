@@ -1,0 +1,18 @@
+
+body{
+  color: red;
+  font: 16px bolder Arial, Helvetica, sans-serif;
+}
+p{
+    border: 12px solid powderblue;
+    padding: 30px;
+    margin: 50px;
+}
+
+#C1{
+  border: 1px solid black;
+}
+
+.C2{
+  border: 1px solid red;
+}

@@ -649,3 +649,47 @@ margin, padding
 To be discussed	responsiveness in a page 
 bootstrap
 js
+
+03/05/2024:
+
+codekata : Problem solving -> the way you approach problem/program.
+webkata -> simple program
+
+array - [1,2,3,4,5,6,7,8,9,10] 
+		--> linear search : for loop, 10 times.. complexity : O(n)
+		--> binary search : divide your loop into half & you will search left & right --> 3 times.. O(log n)
+
+Like hackerrank, hackerearth, leetcode, their own compiler -> resembles guvi & we will be using this
+
+divide & conquer -> analyze the problem -> pieces
+
+assignment : 
+
+	Formatting -> <b>, <sub>, <sup>, <mark>, <i>, <em>, <strong>, <del>, <small>, <ins>
+	Quotation : <blockquote>, <q>, <abbr>, <address>, <cite>, <bdo>
+	favicons :    <link rel="icon" type="image/x-icon" href="images/bridge.jpg">
+	inline CSS, internal CSS, external CSS
+	tables -> create a table, border-collapse, merge n number of rows/columns (
+	colspan, rowspan, padding, spacing), vertical rows, colgroup
+	<img>, <video>, <audio>
+	
+	<div> -> block level
+	<span> -> short strings, styling
+	id, class ->differentiation
+	in a single h1 -> single element -> one id and multiple classes.
+	semantic tags -> header, footer,navbar -> lists (unordererd, ordered), section, article
+	forms -> validations., labels, inputs, textarea
+	CSS -> grid, flexbox, overflow
+	responsive css
+
+hands-on: testimonals, flipcard	
+
+border -> property around your html content
+padding -> space btwn your text and border
+margin -> space outside your border
+
+font: 16px bolder Arial, Helvetica, sans-serif;
+
+https://getbootstrap.com/docs/5.3/content/tables/#overview --> Bootstrap
+
+

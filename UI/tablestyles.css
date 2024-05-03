@@ -1,0 +1,24 @@
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;      
+    /* border-radius: 10px; */
+    border-color: brown;
+    text-align: center;
+    /* border-spacing:30px; */
+   margin: auto;
+   padding: auto;
+}
+
+th,td{
+    /* background-color: bisque; */
+    padding: 15px;
+}
+
+tr:hover{
+    background-color: coral;
+
+}
+
+/* th:nth-child(odd){
+    background-color: aqua;
+} */
