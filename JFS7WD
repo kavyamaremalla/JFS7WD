@@ -704,7 +704,8 @@ JS -> Java script, TS -> type script, angular, react, node, vue etc -> dynamic a
 
 Internal JS -> inside a html code..
 External JS -> outside html
-DOM, BOM
+
+DOM, BOM -> Document Object Model, Browser Object Model
 
 Variables & keywords in JS : var, const, let, automatically assign a variable when undeclared : stores all datatypes
 
@@ -791,15 +792,15 @@ DataTypes :
 
 	let x = new String("queen");
 
-let y = new Boolean(true);
+	let y = new Boolean(true);
 
-let z = new Number();
+	let z = new Number();
 
-let date = new Date();
+ 	let date = new Date();
 
 
 
-console.log(typeof x);
+	console.log(typeof x);
 
 ******************************* String Operations
 
@@ -836,7 +837,7 @@ Template Literals :
 	let fName = "john"
 	let lName = "doe"
 
-	let welcomeNote = `Welcome ${fName}, ${lName}!`;
+	let welcomeNote = `Welcome ${fName}, ${lName}!`; --> back ticks
 
 	console.log(welcomeNote);
 
@@ -879,5 +880,235 @@ for(let key of keys){
     console.log(key);
 } 
 
+13/05/2024 :
 
-doubt session: tasks/concepts which we have seen so far.. or else java 9 to 21 features and java 8 your queries...
+Array Operations : 
+
+create Array :
+
+	const values = [1,2,3,"abc"]
+
+	const value = [];
+	value[0] = "first";
+
+	const car = new Array("tata", "kia")
+
+	values[0] ="name"; -> log it and see in console
+
+	array to string -> car.toString
+
+	for (let index = 0; index < car.length; index++) {
+    const element = car[index];
+    console.log(element);
+	}
+
+	car.forEach(e => console.log(e));  //arrow function
+
+	function displayCar(val) {
+    console.log(val);
+	}
+
+	car.forEach(displayCar); //consumer, supplier, function, predicate --> consumer functional interface
+
+console.log( values.join(" * "));
+
+values[7] = 100;
+
+
+console.log(values);
+
+console.log(values.filter( val => val > 2));
+
+console.log(values.map( val => val * val));
+
+console.log(values.reduce((total, val) => total + val, 0));
+
+for(let key of values.keys()){
+    console.log(key);
+}
+
+
+const cars = [
+    {type: "tata", year : "2017"},
+    {type: "hyundai", year : "2014"},
+    {type: "kia", year : "2020"}
+]
+
+console.log(cars.sort((a,b) => a.year - b.year));
+
+console.log(cars.sort((a, b) => a.type.localeCompare(b.type)));
+
+
+Read about : push, pop, shift, concat, unshift, flat, slice, splice, reverse
+
+
+SET :::::
+
+	const alphabet = new Set(["a", "b", "c"]) // set from an array
+
+     const letters = new Set();
+	letters.add("x")
+	letters.add("y")
+	letters.add("z")
+
+	const letter1 = "d"
+
+	letters.add(letter1);
+	letters.add(1);
+
+
+	console.log(alphabet);
+
+	console.log(letters);
+
+	console.log(letters instanceof Set);
+
+	console.log(letters instanceof Array);
+
+	let arr = Array.from(letters);
+	console.log(arr instanceof Array);
+
+	console.log(letters.has("a"));
+
+	letters.forEach(val => console.log(val));
+
+Set methods : keys, size, entries
+
+
+MAP :::::::::::::::::::
+
+	const fruits = new Map();
+	fruits.set("apple", 100)
+
+	console.log(fruits);
+
+	const fruits = new Map([["bananas", 110], ["orange" , 200]]); // create map from array
+
+
+	console.log(fruits.get("apple"));
+	console.log(fruits.size);
+
+	console.log(fruits.delete("apple"));
+
+	console.log(fruits);
+
+	fruits.clear();
+
+	console.log(fruits.has("apple"));
+
+
+forEach, values, keys, entries
+
+JS Errors :::::::::
+
+
+	try {
+        console.log(1/0);
+        console.log("hi");
+        console.log(add());
+	} catch (error) {
+    if(error instanceof ReferenceError){
+        console.log("Please check your input"); // custom message
+    }
+	}finally{
+    console.log("Inside finally block");
+	}
+
+	throw keyword
+
+
+"use strict"
+ 	x = 3.14 //declare with let/var/const
+
+	add()
+
+	function add(){
+		"use strict"
+ 	   y = 22.7; //declare with let/var/const
+	}
+
+	console.log(x);
+
+Binding using this keyword:
+
+  const person1 = {
+    fullName : function () {
+        return this.firstName + " " + this.lastName;
+      }
+  }
+
+  const person2 = {
+    firstName : "Harry",
+    lastName : "Potter"
+  }
+
+console.log(person1.fullName.call(person2)); //binding using "this keyword"
+
+
+Constructor :::::::::::
+
+	class Car{
+    constructor(name, year){
+        this.name = name;
+        this.year = year;
+
+    }
+    age(param){
+        return param - this.year
+    }
+	}
+
+	const car = new Car("tata", 2020);
+	console.log(car.age(2024));
+
+Getters & Setters -> Object Accessors
+
+
+	const person = {
+    name : "John",
+    language : "",
+
+    get person_name(){
+        return this.name.toUpperCase();
+    },
+
+    set lang(lang){
+        this.language = lang.toUpperCase();
+    }
+	}
+
+	console.log(person.person_name);
+
+	person.lang = "en";
+
+	console.log(person.language);
+
+Inheritance in JS :
+
+class Car{
+    constructor(brand){
+        this.brand = brand;
+    }
+}
+
+class Model extends Car {
+    constructor(brand, mod) {
+        super(brand);
+        this.model = mod;
+    }
+
+    show() {
+        return this.brand + ', It is a ' + this.model + " model" ; // Access brand directly
+    }
+
+    static display() {
+        console.log("From static method");
+    }
+}
+const car = new Model("TATA", 2024);
+// console.log(Car.display());
+Model.display(); // Correct way to call static method
+console.log(car.show()); // Call instance method
+
+
+JS remaining concepts : json parse, prototypes, file operations, call back, asynchronous, promises, await === async, fetch API
