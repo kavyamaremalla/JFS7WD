@@ -1,24 +1,17 @@
-class Car{
-    constructor(brand){
-        this.brand = brand;
-    }
+const fs = require("fs").promises;
+
+ async function displayFiles() {
+  try {
+    let data1 = await fs.readFile("file1.txt", "utf-8");
+    let data2 = await fs.readFile("file2.txt", "utf-8");
+    let data3 = await fs.readFile("file3.txt", "utf-8");
+
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-class Model extends Car {
-    constructor(brand, mod) {
-        super(brand);
-        this.model = mod;
-    }
-
-    show() {
-        return this.brand + ', It is a ' + this.model + " model" ; // Access brand directly
-    }
-
-    static display() {
-        console.log("From static method");
-    }
-}
-const car = new Model("TATA", 2024);
-// console.log(Car.display());
-Model.display(); // Correct way to call static method
-console.log(car.show()); // Call instance method
+displayFiles();

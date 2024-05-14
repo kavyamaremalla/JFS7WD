@@ -1014,8 +1014,7 @@ JS Errors :::::::::
     console.log("Inside finally block");
 	}
 
-	throw keyword
-
+	throw keyword -> an example JS
 
 "use strict"
  	x = 3.14 //declare with let/var/const
@@ -1112,3 +1111,267 @@ console.log(car.show()); // Call instance method
 
 
 JS remaining concepts : json parse, prototypes, file operations, call back, asynchronous, promises, await === async, fetch API
+
+
+JSON PARSE/STRINGIFY :::::::::
+
+
+let obj1 = JSON.parse('{ "type" : "Tata", "model" : "2024", "color" : "white"  }')
+
+console.log(obj1 instanceof Object);
+
+const car = '["kia", "BMW", "tata"]'
+const arr = JSON.parse(car)
+
+console.log(typeof arr);
+console.log(typeof car);
+
+let stringJSON = JSON.stringify({ "type" : "Tata", "model" : "2024", "color" : "white"  })
+
+console.log(typeof stringJSON === 'string');
+
+parse -> converting a string into Object
+stringify -> converts an obj to string
+
+PROTOTYPES :::::::::::
+
+function Person(fName, lName) {
+    this.firstName = fName;
+    this.lastName = lName;
+}
+
+// console.log(Person.prototype); --> inspect and see in browser tab
+
+const father = new Person("John", "Doe")
+const mother = new Person("Ana", "Doe")
+
+// Person.age = 40; // undefined
+
+Person.prototype.age = 40;
+
+console.log(father.age);
+
+CLOSURES ::::::::
+
+global & local variables:
+	global -> can have access to all the functions/methods inside a particular file
+	local -> can have access only for that specific function/method in a class/file
+
+
+	//  let counter = 0; //global variable
+
+function add() {
+    var counter = 0 //global variable
+    var counter = 1
+    function plus() {
+        let counter = 1;
+         counter +=1 //local variable
+    }
+    plus();
+    return counter;
+}
+
+
+
+add();
+add();
+add(); //counter is 3 in case of global variable
+
+// function sub() {
+//     counter -=1;
+// }
+
+// sub();
+
+// console.log(add());
+
+const selfFunction = (function () {
+    let counter = 0;
+    return function () {
+        {
+            counter +=1;
+            return counter;
+        }
+    }(); //inner function, which is self invoking
+})(); //self invoking function
+
+console.log(selfFunction);
+console.log(selfFunction);
+
+
+CALLBACK :::::::::::
+
+function display(val) {
+  console.log(val);
+} // call back function
+
+function add(a, b, func) {
+  let sum = a + b;
+  func(sum);
+}
+
+console.log(add(4,5, display));
+
+setTimeout(function(){display("Welcome! From anonymous function")}, 3000)
+
+setTimeout(() => display("Using Arrow Function!"), 3000)
+
+console.log("From code");
+
+File Operations ::::::::::::: 
+
+const fs = require("fs")
+
+function display(err, data) {
+    if(err){
+        console.log(err.message);
+    }else{
+        console.log(data);
+    }
+}
+
+fs.readFile("file11.txt", "utf-8", display)
+
+
+fs.readFile("file1.txt", "utf-8", (err, data) => {
+    if(err){
+        console.log(err.message);
+    }else{
+        fs.readFile("file2.txt", "utf-8", (err, data1) => {
+            if(err){
+                console.log(err.message);
+            }  else{
+                //add one more readFile for third file..
+                console.log(data);
+                console.log(data1);
+            }
+        })
+        
+    }
+})
+
+
+PROMISES ::::::::::::::::: to avoid writing n number of if blocks in above case, we go for a promise
+
+let myPromise = new Promise((myResolve, myReject) => {
+  let x = 0;
+
+  if (x <= 0) {
+    myResolve("OK! x is zero");
+  } else {
+    myReject("Please check x value, Error!!!!");
+  }
+  setTimeout(() => console.log("Finished Processing"), 3000);
+});
+
+console.log(myPromise); //check in browser tab
+
+myPromise
+  .then((value) => console.log(value))
+  .catch((error) => console.log(error));
+
+States : fulfilled, pending, rejected
+
+let myPromise = new Promise((lessThan, greaterThan) => {
+  let x = 9;
+
+  if (x > 10) {
+    lessThan("OK! x is less than");
+  }
+  if (x < 10) {
+    greaterThan("Greater Than");
+  }
+
+  setTimeout(() => console.log("Finished Processing"), 3000);
+});
+
+// console.log(typeof myPromise);
+
+myPromise
+  .then((lessThan) => console.log(lessThan))
+  .catch((greaterThan) => console.log(greaterThan));
+
+  Applying promises on Files:
+
+  const fs = require("fs");
+const { promisify } = require("util");
+
+const readFilePromise = promisify(fs.readFile);
+
+readFilePromise("file1.txt", "utf-8")
+    .then((data1) => {
+        console.log(data1);
+        return readFilePromise("file2.txt", "utf-8"); // Return the promise
+    })
+    .then((data2) => {
+        console.log(data2);
+        return readFilePromise("file3.txt", "utf-8"); // Return the promise
+    })
+    .then((data3) => {
+        console.log(data3);
+    })
+    .catch((error) => console.log(error));
+
+OR ::::
+
+const fs = require("fs").promises;
+
+fs.readFile("file1.txt", "utf-8")
+    .then((data) => {
+        console.log(data);
+        return fs.readFile("file2.txt", "utf-8"); // Return the promise
+    })
+    .then((data2) => {
+        console.log(data2);
+        return fs.readFile("file3.txt", "utf-8"); // Return the promise
+    })
+    .then((data3) => {
+        console.log(data3);
+        return fs.readFile("file3.txt", "utf-8"); // Return the promise
+    })
+    .catch((error) => console.log(error));
+
+
+Async & Await, without this the promise will be in a pending state::: here::
+
+
+
+  try {
+    let data1 =  fs.readFile("file1.txt", "utf-8");
+    let data2 =  fs.readFile("file2.txt", "utf-8");
+    let data3 =  fs.readFile("file3.txt", "utf-8");
+  
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);
+  } catch (error) {
+    console.log(error);
+  }
+
+
+  WIth Async and await
+
+
+const fs = require("fs").promises;
+
+
+ async function displayFiles(){
+
+  try {
+    let data1 = await fs.readFile("file1.txt", "utf-8");
+    let data2 = await fs.readFile("file2.txt", "utf-8");
+    let data3 = await fs.readFile("file3.txt", "utf-8");
+  
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);
+  } catch (error) {
+    console.log(error);
+  }
+  
+}
+
+displayFiles();
+
+
+Revise : java 8 features... streams, functional interfaces & types of FI, lambda expression, optional, date time api, comparator vs comparable; default, private & static methods in an interface, reduce, Method references, Callable & Future Interfaces, Completable Future & Completion Stage
