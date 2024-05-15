@@ -9,7 +9,7 @@ public class FileHandling {
 
     public static void main(String[] args) throws IOException {
 
-        String personFile = "C:\\Users\\kavya\\JFS7WD\\Java\\Training_Demo\\src\\com\\java\\training\\Person2.txt";
+        String personFile = "C:\\Users\\kavya\\JFS7WD\\Java\\Training_Demo\\src\\com\\java\\training\\Person25.txt";
         Path path = Paths.get(personFile);
 //        Files.createFile(path);
 

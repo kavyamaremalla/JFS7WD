@@ -1,0 +1,23 @@
+
+t
+java:S1854"8Remove this useless assignment to local variable "file".(·›¸›J$3b7d8a58-4974-4a29-8be9-ac3069b94566
+y
+java:S1854"8Remove this useless assignment to local variable "path".(ªøÿşÿÿÿÿJ$df9fe362-fea9-491f-9f9f-aaa76c71aefe
+¨
+java:S1130
+"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿ØJ$d578365e-06a7-4d2b-8bb8-a88d586bf02a
+j
+java:S1481")Remove this unused "path" local variable.(ªøÿşÿÿÿÿJ$b09440c9-5408-4f26-874f-1e93d9333b7f
+|	java:S125"<This block of commented-out lines of code should be removed.(ı®Æ’ıÿÿÿÿJ$1f0ea958-13e7-442a-b119-a8fe3ed30ed5
+e
+java:S1481")Remove this unused "file" local variable.(·›¸›J$847e1cdc-c17e-483d-bab7-b2b056fd54d7
+|	java:S125"<This block of commented-out lines of code should be removed.(Ú‘üƒùÿÿÿÿJ$8bdb10a0-c5cf-43e2-9625-2640cb688c77
+w	java:S125"<This block of commented-out lines of code should be removed.(¼Ø†ëJ$3c4b383f-5c55-4cee-9eb1-7c6ae98f0401
+w	java:S125"<This block of commented-out lines of code should be removed.(‚ ÑšJ$8369715b-70b9-4e1a-81ea-557b5d90b6ca
+w	java:S125"<This block of commented-out lines of code should be removed.(‘ …ÓJ$7669c385-01fd-4eda-a2ef-5b300ce4c7f1
+{	java:S899'";Do something with the "boolean" value returned by "delete".(ôÂ©¥ùÿÿÿÿJ$0d5b95a7-23fb-4732-92db-6dba6c7b3203
+
+java:S4042'"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(ôÂ©¥ùÿÿÿÿJ$abae4ae4-76d7-4e2d-bc38-fad5cde62b8d
+e	java:S106)"+Replace this use of System.out by a logger.(é™ŞJ$3e675c7c-e9e9-4ea1-a527-2aa132b13984
+l
+java:S1128"0Remove this unused import 'java.nio.file.Files'.(‚ƒüJ$20936b24-256b-4d9a-84ee-d00311eceb21

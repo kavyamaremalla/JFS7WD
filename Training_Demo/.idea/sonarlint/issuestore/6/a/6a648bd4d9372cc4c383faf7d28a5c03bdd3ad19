@@ -1,0 +1,27 @@
+
+v
+java:S1161":Add the "@Override" annotation above this method signature(“–ışJ$771f74a9-fd90-4294-8eae-7c952320b7ce
+b
+java:S1860"&Synchronize on a new "Object" instead.(Ü²€ÿJ$48520d7a-efb2-443e-add8-bd895793badb
+k	java:S106"+Replace this use of System.out by a logger.(‚ß„‚ıÿÿÿÿJ$fbacee2b-6db7-46d5-bba6-4e371047dc16
+š
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾J$4569cba1-4ede-46b6-987f-fd8d3424a38d
+
+java:S2276"CReplace the call to "Thread.sleep(...)" with a call to "wait(...)".(á˜ ¶J$2d5475d9-9f9f-4b95-a88f-9a42ea952aeb
+d	java:S108")Either remove or fill this block of code.(”ı¾J$8c0ceab5-e239-4602-a234-c15da3724ffc
+g
+java:S1860"&Synchronize on a new "Object" instead.(öÈ­ıÿÿÿÿJ$38a0e466-b7b5-42a3-b720-fedeb7e5e2c7
+f	java:S106"+Replace this use of System.out by a logger.(Çë‘¡J$732f7509-2219-4627-86b7-96cca373ce6c
+v
+java:S1161":Add the "@Override" annotation above this method signature(“–ışJ$602bf8ee-b6c2-428e-b5c3-113ada74646e
+g
+java:S1860 "&Synchronize on a new "Object" instead.(öÈ­ıÿÿÿÿJ$abd14d5c-5431-4bf0-9be3-64a50dfe755c
+f	java:S106!"+Replace this use of System.out by a logger.(Ğ»£¾J$15f29987-21fe-4974-9613-b67b3d4f8f84
+š
+java:S2142%"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾J$c18f66b9-be0d-4ba0-b602-d67da92f7e27
+
+java:S2276$"CReplace the call to "Thread.sleep(...)" with a call to "wait(...)".(á˜ ¶J$2fd0330d-29b1-4076-9389-8815ca0c835c
+d	java:S108%")Either remove or fill this block of code.(”ı¾J$2df8cf16-28f2-498d-afff-04e33bac08f5
+b
+java:S1860("&Synchronize on a new "Object" instead.(Ü²€ÿJ$0928fa6e-55a8-4c7c-a1da-073f1bba247a
+f	java:S106)"+Replace this use of System.out by a logger.(§†¾åJ$5764818d-22d1-4de9-b462-4fbe332b2862

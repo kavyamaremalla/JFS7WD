@@ -1112,6 +1112,7 @@ console.log(car.show()); // Call instance method
 
 JS remaining concepts : json parse, prototypes, file operations, call back, asynchronous, promises, await === async, fetch API
 
+14/05/24:
 
 JSON PARSE/STRINGIFY :::::::::
 
@@ -1218,7 +1219,7 @@ setTimeout(() => display("Using Arrow Function!"), 3000)
 
 console.log("From code");
 
-File Operations ::::::::::::: 
+File Read Operation ::::::::::::: 
 
 const fs = require("fs")
 
@@ -1335,7 +1336,6 @@ fs.readFile("file1.txt", "utf-8")
 Async & Await, without this the promise will be in a pending state::: here::
 
 
-
   try {
     let data1 =  fs.readFile("file1.txt", "utf-8");
     let data2 =  fs.readFile("file2.txt", "utf-8");
@@ -1375,3 +1375,47 @@ displayFiles();
 
 
 Revise : java 8 features... streams, functional interfaces & types of FI, lambda expression, optional, date time api, comparator vs comparable; default, private & static methods in an interface, reduce, Method references, Callable & Future Interfaces, Completable Future & Completion Stage
+
+15/05/2024 : Fetch API, Java 9-17 features..
+
+Fetch :::
+
+
+fetch('https://reqres.in/api/users?page=2')
+  .then((res) => res.json())
+  .then((res) => console.log(res));
+
+
+  const fetchUserInfo = async () => {
+    try {
+        const response = await fetch('https://reqres.in/api/users?page=2')
+    
+        //parse json response
+        const userData = await response.json()
+    
+        console.log(userData);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+fetchUserInfo();
+
+axios() -> something similar to your fetch apis
+
+Java 9-17 Features:
+
+Contents:
+
+● Private methods in interface - covered already in second session
+● Collectors API & Immutable Collections - done
+● Var keyword - done
+● File APIs - done
+● Switch expressions - done
+● Text blocks - done
+● Records - from java 14
+
+read about sealed,non sealed classes. Scanner changes from Java 9, auto closeable.
+
+
+File APIs :; delete a non-existing file, exception won't be thrown., Buffered Writer, Files.writeString

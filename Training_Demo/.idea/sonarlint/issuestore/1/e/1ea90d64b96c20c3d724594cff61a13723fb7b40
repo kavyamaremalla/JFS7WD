@@ -1,0 +1,25 @@
+
+‰
+java:S1854+"FRemove this useless assignment to local variable "advancedNumberList".(ð„¬ñ8Œ£¡ã÷1J$9deeeb7a-f187-459b-8747-f86c38e41106
+
+java:S1854">Remove this useless assignment to local variable "numberList".(½¨Ä‡8É  ã÷1J$df3c570e-843e-4053-a0fb-a93aedcea60d
+Œ
+java:S1854"IRemove this useless assignment to local variable "unmodifiableSportList".(ØÀ¨·8Ë  ã÷1J$fc65f6f7-868a-41b1-ab3d-bc1fc5f4029e
+~	java:S125"<This block of commented-out lines of code should be removed.(öµ’Ú8Ð  ã÷1J$85f1b867-e5e9-4f99-801b-00df607107dd
+}
+java:S1481":Remove this unused "unmodifiableSportList" local variable.(ØÀ¨·8Ó  ã÷1J$fd3a6d55-006b-4fcd-ad21-76a82c804c84
+~	java:S125"<This block of commented-out lines of code should be removed.(ì”è±8Ó  ã÷1J$8466908e-a4aa-4e55-9c68-6aa1d8c3709a
+r
+java:S1481"/Remove this unused "numberList" local variable.(½¨Ä‡8Õ  ã÷1J$bcc91414-0d6e-4231-852c-3b8da4547a57
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(ÚÍ×§üÿÿÿÿ8Õ  ã÷1J$0f0b3895-735c-4289-8293-a0360297fc18
+ƒ	java:S125$"<This block of commented-out lines of code should be removed.(šÊ”Ïùÿÿÿÿ8Õ  ã÷1J$290da946-b1bb-407b-b244-59156a87d601
+~	java:S125&"<This block of commented-out lines of code should be removed.(û®ï‡8Ö  ã÷1J$023e5068-67cd-47d0-8bc2-a52e1f925a10
+ƒ	java:S125("<This block of commented-out lines of code should be removed.(™ÙäØüÿÿÿÿ8Ö  ã÷1J$2ba03661-9835-4e34-9a7c-0bbb78f5b0b8
+z
+java:S1481+"7Remove this unused "advancedNumberList" local variable.(ð„¬ñ8¹£¡ã÷1J$dc0abbc2-c501-43b8-82ae-0203da39c87f
+~	java:S125,"<This block of commented-out lines of code should be removed.(ÿÿ©ó8¹£¡ã÷1J$2beff6f7-0216-49fd-abf6-69ceff01253d
+m	java:S1063"+Replace this use of System.out by a logger.(½ýƒ€8Ý  ã÷1J$c0c4712a-bc11-4614-ae2b-e1f9af67113d
+€
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¯î ã÷1J$8df28f16-5224-4cf5-8561-7d0172c24017
+w
+java:S1128"4Remove this unused import 'java.util.stream.Stream'.(ó÷Ž”8°î ã÷1J$dedeab4f-00f2-4acd-ad8d-8c241106f586

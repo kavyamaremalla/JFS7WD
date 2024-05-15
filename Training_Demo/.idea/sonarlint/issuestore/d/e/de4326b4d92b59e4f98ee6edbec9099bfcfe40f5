@@ -1,0 +1,33 @@
+
+
+java:S1854"7Remove this useless assignment to local variable "map".(ıîÃüşÿÿÿÿ8‡úËã÷1J$e3eaca88-bf1d-46b8-b7ed-86cec7be3f6e
+€
+java:S1854"8Remove this useless assignment to local variable "age2".(„ÊÀïúÿÿÿÿ8‡úËã÷1J$b098f810-6f4b-4a2b-8c4c-8848cb735c70
+
+java:S1854"9Remove this useless assignment to local variable "name2".(û¦ƒ„ùÿÿÿÿ8ˆúËã÷1J$981a9ddd-3f7d-498f-895b-6cf85265b68f
+‰
+java:S1854"ARemove this useless assignment to local variable "collectorsAPI".(ª¦¿ûÿÿÿÿ8ˆúËã÷1J$8b95e064-4421-410f-a744-dab16817307a
+€
+java:S1854"8Remove this useless assignment to local variable "age1".(Ùñ±ûÿÿÿÿ8ˆúËã÷1J$81a3dbbe-8c52-4bf9-9ca5-aee849d84180
+|
+java:S1854
+"9Remove this useless assignment to local variable "name1".(Ñºˆô8ˆúËã÷1J$c5bdb436-9984-4298-9875-7ac45fdf7a07
+~	java:S125"<This block of commented-out lines of code should be removed.(ßˆàî8ŠúËã÷1J$6fb7372b-d09a-436e-9224-573accfaaf7e
+m
+java:S1481
+"*Remove this unused "name1" local variable.(Ñºˆô8ŒúËã÷1J$3e01dff4-6459-4fa4-92d7-5763e7f4db84
+u
+java:S2440"-Remove this instantiation of "CollectorsAPI".(ª¦¿ûÿÿÿÿ8úËã÷1J$67f127b1-60d0-4faf-907d-71f1d98d5887
+z
+java:S1481"2Remove this unused "collectorsAPI" local variable.(ª¦¿ûÿÿÿÿ8úËã÷1J$de859dd2-a7d6-48ca-a76f-b5cbc0154fa2
+p
+java:S2440"-Remove this instantiation of "CollectorsAPI".(­§Õ©8‘úËã÷1J$dbb0b84f-bae9-47f0-974e-a14a095032de
+r	java:S106"+Replace this use of System.out by a logger.(š—“¿ÿÿÿÿÿ8”úËã÷1J$bf4b2bdb-7304-43b1-bef1-339e9faa349a
+r
+java:S1481"*Remove this unused "name2" local variable.(û¦ƒ„ùÿÿÿÿ8•úËã÷1J$8e7f4570-e284-482a-907e-639f24768664
+~	java:S125"<This block of commented-out lines of code should be removed.(ÙÙ²Ç8ƒÅÌã÷1J$a49655a0-05aa-4422-a289-f04ebbf7b7bb
+p
+java:S1481"(Remove this unused "map" local variable.(ıîÃüşÿÿÿÿ8˜úËã÷1J$037e06a9-17ad-4a65-bfda-9fcc561d52d7
+r	java:S106"+Replace this use of System.out by a logger.(¼ûåÿÿÿÿÿ8™úËã÷1J$e767f980-a351-4af2-adcf-ae7bcdcd7c65
+m	java:S106"+Replace this use of System.out by a logger.(Üâ½Û8™úËã÷1J$13ff7557-715d-4ea5-8492-e54748e584a3
+~	java:S125 "<This block of commented-out lines of code should be removed.(™±‘Æ8šúËã÷1J$d3d91ef8-3136-4d08-940c-103bf6ca8938

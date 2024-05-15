@@ -1,0 +1,11 @@
+
+
+java:S1854
+">Remove this useless assignment to local variable "fileSystem".(ìÚ°ø8ºµ½â÷1J$28a10eec-b079-4d99-a4bf-b4227784ec74
+r
+java:S1481
+"/Remove this unused "fileSystem" local variable.(ìÚ°ø8½µ½â÷1J$c2a8a4dc-1dac-4705-a9fa-666171a3958c
+m	java:S106"+Replace this use of System.out by a logger.(ÚøÅ8Áµ½â÷1J$e4e55440-551b-4270-8924-ee3a05da96c7
+r	java:S106"+Replace this use of System.out by a logger.(Ûï±úÿÿÿÿ8Áµ½â÷1J$2d8bcde4-63d6-4faf-8065-0ea3aa3edd05
+m	java:S106"+Replace this use of System.out by a logger.(ä‡º÷8Ãµ½â÷1J$a4bdefdb-454a-4cbd-8956-c9f2f77b2da9
+r	java:S106'"+Replace this use of System.out by a logger.(óßƒØıÿÿÿÿ8¥éÎâ÷1J$e833e21a-e0af-458c-9f31-7b82bd96cdf6

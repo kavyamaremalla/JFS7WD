@@ -1,0 +1,11 @@
+
+x
+java:S1854"5Remove this useless assignment to local variable "s".(™¸ַ8ֻכהדק1J$abe0e00d-10d6-4db1-ad1b-59d011f318ad
+u
+java:S6126"2Replace this String concatenation with Text block.(™¸ַ8ֽכהדק1J$d3e42c4f-e32e-46ee-8605-7800158c7ab2
+i
+java:S1481"&Remove this unused "s" local variable.(™¸ַ8־כהדק1J$e1b9c477-266a-4afe-84fb-b3db3bac2f8f
+~	java:S125"<This block of commented-out lines of code should be removed.(û’Þ€8׀כהדק1J$6f852cb9-ed13-49b8-a21a-a50805a46e60
+m	java:S106"+Replace this use of System.out by a logger.( Ê³ׂ8µ¢חדק1J$7cf5df91-03b0-4a94-8967-175ce6d1b591
+€
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(׃ף÷´תÿÿÿÿ8׃כהדק1J$910ec5cc-9aaf-4c4c-bb3f-4866c19294bf

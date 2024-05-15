@@ -1,0 +1,13 @@
+
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ρηƒεχ1J$68ae3e2c-ba11-4854-891b-d859b62dae99
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ρηƒεχ1J$dc535ffc-30e8-4320-9e1a-44b3ac2697c4
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ρηƒεχ1J$04feb727-9a33-4e86-834f-dcd5418f60cb
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ρηƒεχ1J$600e1c97-70fc-469a-850d-07c88ebcd784
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ρηƒεχ1J$99197294-0036-478e-8623-f70fbfbb49ae
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ςηƒεχ1J$8e56ada6-f4d3-4eff-804f-7174cae75b73
+	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(βΨ8ςηƒεχ1J$5a0028ce-aba2-4074-8f81-581b61f6a80e
+}
+java:S1854"5Remove this useless assignment to local variable "x".(―½ƒ—ύÿÿÿÿ8τηƒεχ1J$6f5156a5-c2cc-42c5-b5d8-d897dda90c79
+n
+java:S1481"&Remove this unused "x" local variable.(―½ƒ—ύÿÿÿÿ8χηƒεχ1J$801d461b-e873-40a1-8ae2-7e09502f0b54
+m	java:S106"+Replace this use of System.out by a logger.(·άΏ8ωηƒεχ1J$d6b786a4-5681-453e-84f5-2513429f4cce
