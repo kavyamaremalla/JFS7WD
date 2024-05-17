@@ -1403,6 +1403,8 @@ fetchUserInfo();
 
 axios() -> something similar to your fetch apis
 
+fetch post request..
+
 Java 9-17 Features:
 
 Contents:
@@ -1419,3 +1421,119 @@ read about sealed,non sealed classes. Scanner changes from Java 9, auto closeabl
 
 
 File APIs :; delete a non-existing file, exception won't be thrown., Buffered Writer, Files.writeString
+
+
+16/05/24 :: IOC & Dependency Injection, Spring framework
+
+backend server/application -> 24*7.. --> 
+
+	req ---> send to your back end app/server (process your information) --> response
+
+	ui -> n number of filters here (validate your request), mulesoft, ping federate, etc -> backend API -> interact with your db and send you the response (validate your response)...
+
+Java EE (Enterprise Edition) -> JSP(java server page) + Servlets(ui + java code) + JSF etc..
+
+Java -> spring framework.. evolutions.. mvc/boot/batch
+
+pros of spring : 
+	less code
+	configurations is maintained by spring
+	reduces boiler plate code... section of code, which is repeated through out the app with little or no changes at all.
+		10 public methods -> same logic repeated.. in almost 8 methods..
+
+IOC - Inversion Of Control.. spring tc of obj creation, destruction, obj lifecycle
+DI - Dependency Injection.. constructor injection, setter injection, class/field injection
+
+spring-context : https://mvnrepository.com/artifact/org.springframework/spring-context
+
+AOP - aspect oriented programming.. concerns like your classes..
+
+beans : obj managed by spring
+spring-context/container -> has all the beans
+
+cricket/football coach -> depends on  happy wish service
+	-> setter injection
+	-> constructor
+	-> set properties
+	-> scope -> bean life cycle
+		singleton -> obj created and destroyed
+		prototype -> only created
+
+
+.properties or .yml file...	
+
+17/05/2024:
+
+component-scan : read the base packages of your application..
+
+@Component -> is responsible for bean creation
+
+@Autowired -> injection 
+				: constructor -> mandatory fields
+				: setter -> optional fields
+				: field/class level
+
+@Value -> to read properties
+@Scope("prototype") or @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
+@PreDestroy & @PostConstruct
+
+In config file:
+
+@Configuration
+@ComponentScan("com.spring.demo")
+@PropertySource("sports.properties")
+
+@Qualifier("happyWishService") -> if you have two beans and no name defined, you go for this to pick something as default
+	: constructor/setter/field level injection
+
+@Primary --> at the bean level you can use, if you have multiple beans injected
+	: class-level
+
+@Bean -> third party libraries
+
+
+Spring MVC -> inbuilt server/ use a apache tomcat server..
+	Model -> data of app
+	View -> displaying user., thymeleaf/jsp page
+	Controller ->	handling user requests
+
+Spring Boot -> inbuilt tomcat server -> you can change your server by adding dependency of any other server
+	: auto-config & start..	
+
+Dispatcher Servlet -> handles all incoming http req -->	invokes appropriate ctrl class, this acts as front ctrlr.. 
+
+	request -> ctrlr -> service -> repository -> bean/dto/pojo/entity..
+
+lombok :
+	@Data
+	@AllArgsConstructor
+	@NoArgsConstructor
+
+Log : slf4j vs log4j
+	info, debug, error
+
+@Controller -> built on top of component, rep of ctlr class
+@RestController -> rest api + @ctrlr + @ResponseBody
+
+
+
+API -> communication btwn component ::::: CRUD -> Create, Read, Update & Delete
+
+	Post : inserting some data into db
+	Get : fetches the info from db
+	put/patch : update
+	delete : delete specified data
+
+
+http://localhost:8080/call-app
+	http : protocol / https :  secured
+	localhost : app is hosted on/ running / served --> base URI
+	8080 : port
+	call-app : end-point
+
+Status Codes:
+		1XX -> information
+		200, 201, 204, 2XX -> API Info
+		3XX -> redirectional
+		404, 4XX -> client side
+		5XX -> server
