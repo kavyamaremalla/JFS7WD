@@ -1515,6 +1515,18 @@ Log : slf4j vs log4j
 @Controller -> built on top of component, rep of ctlr class
 @RestController -> rest api + @ctrlr + @ResponseBody
 
+@RequestMapping(method = RequestMethod.GET) ======= @GetMapping
+	: @GetMapping, @PostMapping, @PutMapping, @PatchMapping, @DeleteMapping
+		put vs patch -> update a resource; 
+			put -> whole resource & patch -> only the changed value..
+			put -> creates a new resource if resource doesn't exist, patch -> only field changes no changes on resource level
+
+
+@PathVariable -> to read params from URI
+@RequestBody -> to read your object from request
+@RequestParam -> to read your query parameters
+		& -> and , % -> or
+@RequestMapping("api/student") -> at ctrlr level -> fixed endpoint/path for a service		
 
 
 API -> communication btwn component ::::: CRUD -> Create, Read, Update & Delete
@@ -1537,3 +1549,23 @@ Status Codes:
 		3XX -> redirectional
 		404, 4XX -> client side
 		5XX -> server
+
+20/05/24 : remaining methods in ctrlr..
+
+*********** Hibernate & JPA ***************
+
+JDBC -> interact db & java code
+
+hibernate & jpa -> simpler way..
+	: Java Persistence API -> lib, hibernate under JPA..
+	: hibernate-config.xml -> configuration
+@Entity
+@Table(name = "persons")
+
+PK : @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+Column level :
+	    @Column(name = "FirstName", nullable = false, unique = true)
+
+ORM : Object Relational Mapping..	
