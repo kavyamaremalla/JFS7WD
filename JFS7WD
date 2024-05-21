@@ -1526,7 +1526,7 @@ Log : slf4j vs log4j
 @RequestBody -> to read your object from request
 @RequestParam -> to read your query parameters
 		& -> and , % -> or
-@RequestMapping("api/student") -> at ctrlr level -> fixed endpoint/path for a service		
+@RequestMapping("api/student") -> at ctrlr class level -> fixed endpoint/path for a service		
 
 
 API -> communication btwn component ::::: CRUD -> Create, Read, Update & Delete
@@ -1568,4 +1568,47 @@ PK : @Id
 Column level :
 	    @Column(name = "FirstName", nullable = false, unique = true)
 
-ORM : Object Relational Mapping..	
+ORM : Object Relational Mapping..
+	RelationShips:	
+		OneToMany
+		ManyToOne
+		ManyToMany
+		OneToOne
+
+
+	One Person can have Many Orders..	
+
+21/05/24 -> spring data jpa/momgo---> sql & mongo	
+
+req -> ctrlr -> service -> repo -> again it fetches ur res and send back to service and to ctrlr
+
+	spring data jpa proj creation ->
+		app. props -> connection details
+		created an entity
+
+	@Repository -> on a repo layer	
+		<EntityClass, type of PK> -> generics to any extension of a repo.
+		service methods & impl
+		ctrlr
+		tested the app
+
+spring aop : Aspect Oriented Programming.. 
+
+spring-data-mongodb:
+
+	download the project from initialzr
+
+		@Document(collection = "product") -> at dto/entity level
+
+Optimistic & Pessimistic Locking : 10,000 -> upi I remove 6,000 & from atm -> 5,000... 	
+			: locking -> prevent simultaneous access to a data in a system/application
+
+		Optimistic : timestamps, versions.. object level
+		Pessimistic : memory level lock, serializable... transaction isolation level... -> read_committed, read_uncommitted, repeatable read, serializable
+			on a service/repo layer :   @Transactional(Isolation.SERIALIZABLE)
+
+		ACID : Atomocity, Consistency, Isolation, Durability...
+
+TO-DO : finish remaining end-points in your spring-data-jpa...
+
+22/05/24 -> swagger(API documentation), exception handling in boot, validation in boot, actuator
