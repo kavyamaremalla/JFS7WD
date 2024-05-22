@@ -1513,6 +1513,8 @@ Log : slf4j vs log4j
 	info, debug, error
 
 @Controller -> built on top of component, rep of ctlr class
+@Service -> built on top of component, rep of service class
+@Repository -> built on top of component, rep of repository class
 @RestController -> rest api + @ctrlr + @ResponseBody
 
 @RequestMapping(method = RequestMethod.GET) ======= @GetMapping
@@ -1578,7 +1580,7 @@ ORM : Object Relational Mapping..
 
 	One Person can have Many Orders..	
 
-21/05/24 -> spring data jpa/momgo---> sql & mongo	
+21/05/24 -> spring data jpa/mongo---> sql & mongo	
 
 req -> ctrlr -> service -> repo -> again it fetches ur res and send back to service and to ctrlr
 
@@ -1611,4 +1613,18 @@ Optimistic & Pessimistic Locking : 10,000 -> upi I remove 6,000 & from atm -> 5,
 
 TO-DO : finish remaining end-points in your spring-data-jpa...
 
-22/05/24 -> swagger(API documentation), exception handling in boot, validation in boot, actuator
+22/05/24 -> spring mapping, exception handling in boot, validation in boot
+
+Mapping : vulnerabilities.. obj oriented model -> relational model
+
+	ctrlr ---> obj(Java, data transfer object) ---> service (map your dto with entity (db obj)) ---> entity to repo... again vice versa
+
+basic mapping -> creating an UserMapper
+ModelMapper -> mapper.map(source, destination)	
+
+validate req body -> spring-validation, @Valid, @NotEmpty
+
+Field level validations : https://www.bezkoder.com/spring-boot-validate-request-body/
+
+
+23/05/24 -> swagger(API documentation), actuator
