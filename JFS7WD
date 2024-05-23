@@ -1627,4 +1627,31 @@ validate req body -> spring-validation, @Valid, @NotEmpty
 Field level validations : https://www.bezkoder.com/spring-boot-validate-request-body/
 
 
-23/05/24 -> swagger(API documentation), actuator
+23/05/24 -> swagger(API documentation), actuator, servlets
+
+spring actuator -> you can the status of your application for management/monitoring -> health, metrics, info.. 14 endpoints in this..
+
+	actuator : 
+		/actuator -> available endpoints
+		/health
+		/info
+		/beans
+		/mappings
+		/configprops
+		/metrics
+		/metrics/any endpoint you see from /metrics
+		/env
+		/cache
+		/condition
+		/loggers
+		/scheduledtasks
+		/shutdown
+
+
+Swagger :
+	swagger 2 -> walkthrough
+	swagger 3 -> add dep in app & customisation at app level, ctrlr level, schema level..
+
+
+Servlets :	
+ new project with web-app archetype -> configure tomcat, run the app
