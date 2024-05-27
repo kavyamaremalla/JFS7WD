@@ -1655,3 +1655,56 @@ Swagger :
 
 Servlets :	
  new project with web-app archetype -> configure tomcat, run the app
+
+
+Spring Security : 
+
+		verifying identity -> authentication.. emp or a non-employee
+		grant access level -> authorization.. admin user and normal user for an employee
+
+demo -> 
+	downloaded from spring initializr
+	created simple basic apis
+	saw authentication from generated password through console (during app start up)
+	debugged the application to see where internally our username and password are filtered
+	saw authentication by defining user and password in app.props
+
+	added configuration to allow our post requests as well..
+
+	method level authorization -> through configuration
+	method level authorization -> through controller
+		- 401 unauthorized -> not authenticated.. wrong credentials
+		- 403 forbidden -> if user is not authorized to access an API
+
+	 
+	authentication by storing this user and password in db..
+
+
+27/05/24
+
+ManyToMany
+
+	  users	  			roles
+	 1(john)          1(admin)
+	 1(john)          2(user)
+	 2(harry)         1(admin)
+	 3(peter)         2(normal user)	
+	 3(Peter)         3(waiter role)
+
+Dao ==== repository
+
+    - created a CustomUserDetailsService instead of using the spring inbuilt one
+
+AuthenticationFilter -> AuthenticationManager -> ProviderManager -> AuthenticationProvider -> DaoAuthenticationProvider -> UserDetailsService
+
+JWT --> Json Web Tokens --> hashed token used to authenticate API..
+
+	- generated JWT using a post request in controller
+	- create a custom Authentication Manager..
+	- create jwtUtil to validate the bearer token
+	- using the jwt token -> hit the end points..
+
+
+spring batch & jms, webflux & reactive streams..	
+
+
