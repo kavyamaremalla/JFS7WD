@@ -1704,7 +1704,68 @@ JWT --> Json Web Tokens --> hashed token used to authenticate API..
 	- create jwtUtil to validate the bearer token
 	- using the jwt token -> hit the end points..
 
+28/05/24:
 
-spring batch & jms, webflux & reactive streams..	
+Spring webflux & reactive streams..	
 
+	reactive - reactive programming & alternative to mvc
+		- asynchronous & non-blocking apps
+			blocking/synchronous -> user waits for data before performing execution
+			non-blocking -> user won't wait for anything
 
+Normal Scenario :
+
+req to API -> dispatcher servlet (handles routing to controllers) 
+
+Blocking model(mvc/boot/web) :
+
+	1 thread ---> 1 API (by default you can handle 200 API calls..)	
+	2000 threads -> an issue at future...if you have millions of data..
+
+To overcome this -> reactive model..
+
+API Call --> event loop (like your node js) 24 * 7 reload symbol -> non-blocking reactive stream -> process req by allocating other threads..
+
+Flow.java -> from Java 9
+
+	- publisher : publish events : db/api call
+	- subscriber : to events : ctrlr.. will listen to published events
+	- subscription : listen to subscribe..
+
+r2dbc -> sql servers -> spring reactive web app -> an exmp to connect through repo..
+		
+  @Query("SELECT * FROM employee WHERE last_name = :lastname and first_name = :firstname")
+    Flux<Employee> findByLastName(String lastName, String firstname);
+
+reactive mongodb -> mongo connections
+
+Flux -> 0 to n responses -> any number
+Mono -> 0 or single (1) response..
+
+Instead of ResponseEntity : 
+
+    @ResponseStatus(value = HttpStatus.CREATED)
+
+getAllEmployees -> 
+	serversideEvents -> stream responses -> zip and send n number of events..
+
+29/05/24:
+
+Spring Batch : deals with bulk data & whenever to execute particular some frequent intervals of time..
+
+1. Salary -> last working day/first day/particular day of every month.. scheduled jobs
+2. user table -> changed to employee table(same/diff db) -> migration, oracle to postgres sql..
+3. emp from comp y -> data (pf data, remarks etc csv file)., our company x -> import the csv from y comp and process this csv..
+
+comp x -> import csv -> write to db
+comp y -> export csv -> from db
+
+demo project
+
+	Steps :
+
+	  - 1. Reader -> read values from your db / csv file
+	  - 2. Processor -> generate sql statements & handle any logic
+	  - 3. Writer -> write the queries to your db..
+
+Spring JMS , spring cloud & microservice	
