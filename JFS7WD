@@ -1768,4 +1768,93 @@ demo project
 	  - 2. Processor -> generate sql statements & handle any logic
 	  - 3. Writer -> write the queries to your db..
 
-Spring JMS , spring cloud & microservice	
+
+devops use -> main branch to deploy.. (git link)
+
+bug -> push your code to a branch (which is not main) bug_branch -> PR (reviewed & approved by your fellow colleagues..) -> once pr is approved -> merge your PR with your main 
+	- build & deploy :
+		1. you can do manually.. jenkins/ platform, build your application
+		2. when ever your main branch has a change in 5minuts(could be any time) -> a build will be automatically trigerred & deploy as well
+			- build : you do all the maven steps (run, install, clean, sonar, junits running, checks/validations)  & finally give you a jar file
+			- deploy : put this jar / replace the old jar into your specified env..
+
+Dev-tools -> see a change in your code (app should be running)/ redeploy the code
+	With DevTools when we make changes to Java code or properties file, the application gets updated with new changes. It monitors for changes and automatically restarts the application
+	 - maven/gradle dependency		
+
+30/05/24:
+
+Spring JMS -> Java Messaging Service
+
+	- queue for sending, receiving, reading a msg -> rabbit mq, kafka, active mq, apache mq, ibm mq etc..
+
+MS1 -> rest API(or message) -> MS2    
+
+Message driven communication in case of message
+
+MS1 ----> ms2 and MS1 ---> ms3... One MS to many MSs...
+
+Msg driven -> ms1 ->send a msg ms2, ms3.. one publisher and multiple subscribers.. One to many communication..
+
+1 -> 1 service--> Queue
+1 -> many services -> Topic
+
+spring-jms-demo :
+
+	1. downloaded project
+	2. download docker desktop
+	3. activemq docker command in cmd : docker run --detach --name mycontainer -p 61616:61616 -p 8161:8161 --rm apache/activemq-artemis:latest-alpine
+
+
+Email -> Receiver -> configure	
+
+created a sender and sent email messages..
+
+the package name of a sender and receiver should be same
+
+you can check more details on http://localhost:8161
+	
+	username : artemis
+	password : artemis (whatever you define in app.props)
+
+spring cloud & microservice	Intro:
+
+	monolithic architecture -> single application, single service..
+	microservice architecture -> 
+
+	amazon/flipkart -> product search service and payment service.. n users.. both services load 2million times..
+		-> prod search service -> 2million times
+		-> payment service -> only when req..
+		-> order service..
+
+		Scaling -> resources handle load
+
+ms1 -> sql db., ms2 -> oracle db, ms3 -> postgres db & python.. ms4 -> node.js & node, ms5 -> vue.js & java ---> as a unit..
+
+Cons :
+	easy to scale
+	each ms --> 1 functionality.. easy to maintain & test..		
+	different ms (microservice) -> can have different technologies
+
+
+Communication -> product id in payment service or payment txn id in orders service
+		 sync : search, payment -> search will wait & vice-versa..
+		 async : both don't co-ordinate i.e., search & payment won't wait for each other
+
+100 ms -> different ports -> maintain & track..
+
+	client (UI) -> ms1/ms2/... API gateway -> fwds req to respective ms (uses service discovery to fwd req)..
+	ms is down -> circuit breaker pattern
+	app.properties -> Config Server ... configuration of ms..
+	one ms -> can have n number of instances ( copy of your application ) -> service registry / discovery (Eureka Server)
+	  - register your services , track for discovery 
+	To track an API call (ms communication) -> distributed tracing
+	bus refresh & rabbit mq
+	
+Spring Cloud framework -> all above features + additional features..
+
+Demo-application two ms :
+	1. Employee Service -> Post & Get end-points & get endpoint depends on Dept Service
+	2. Department Service -> Post & Get end-points
+
+
