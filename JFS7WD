@@ -1810,7 +1810,7 @@ Email -> Receiver -> configure
 
 created a sender and sent email messages..
 
-the package name of a sender and receiver should be same
+the java package name of a sender and receiver should be same
 
 you can check more details on http://localhost:8161
 	
@@ -1853,8 +1853,24 @@ Communication -> product id in payment service or payment txn id in orders servi
 	
 Spring Cloud framework -> all above features + additional features..
 
+31/01/24:
+
 Demo-application two ms :
 	1. Employee Service -> Post & Get end-points & get endpoint depends on Dept Service
 	2. Department Service -> Post & Get end-points
 
 
+Dept --> get dept by Code...
+
+Emp -> you have a code --> using this dept code I need details of dept service..
+
+ms communication
+
+	- RestTemplate
+	- Spring Open Feign
+	- Web Client 
+
+
+
+
+REST vs Soap vs GraphQL
