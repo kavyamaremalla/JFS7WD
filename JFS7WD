@@ -1817,7 +1817,7 @@ you can check more details on http://localhost:8161
 	username : artemis
 	password : artemis (whatever you define in app.props)
 
-spring cloud & microservice	Intro:
+**** spring cloud & microservices Intro: ****
 
 	monolithic architecture -> single application, single service..
 	microservice architecture -> 
@@ -1871,6 +1871,65 @@ ms communication
 	- Web Client 
 
 
+03/06/34:
 
+REST (Representational State Transfer) vs Soap (Simple Object Access Protocol) vs GraphQL
 
-REST vs Soap vs GraphQL
+	Rest : xml, html, image, any form of files, json, flexible -> multiple requests
+	Soap : xml, many preconditions -> code in xml
+	graphql : developed by FB.. -> a single request can handle multiple endpoints..
+		 -> graph ql example: https://spring.io/guides/gs/graphql-server
+
+Unit Testing:
+
+app -> func like getEmployee (unit) or saveEmployee (unit)
+
+function :
+
+public int add(a, b){
+	return summation(a,b); // summation is a different private method.., in case of other class call you will mock/dummy the object..
+}
+
+	test cases : 
+		1. whole numbers
+		2. negative numbers
+		3. rational or irrational numbers
+		4. decimal numbers
+
+Actual Vs Expected :
+	actual -> your code logic
+	expected -> expecting some result
+	Assertions -> equal, not equal, true or false, etc
+
+getEmployee 
+	1. 	correct id and get employee details -> success scenario
+	2.  incorrect id -> which doesn't exist in db and you should get a resource not found exception -> negative scenario
+
+Test case Steps :
+
+	1. initialize the req parameters to test
+	2. create mock objects
+	3. call the method which you are going to test (from step 1)
+	4. assert if your actual result matches with expected result.
+
+Add junit dependency..
+
+Test Cases Concatenate :
+
+	1. normal case : send 2 strings..
+	2. empty strings as i/p -> see result
+	3. empty firstName 
+	4. empty lastName
+	5. null firstName
+	6. null secondName
+	7. both null
+
+TDD & BDD..
+
+Annotations :
+	@Test, @AfterEach, @AfterAll, @BeforeEach, @BeforeAll
+
+Tests : normal classes where your have functions..
+we shall not write a test case for application main method, interface, enum --> exclude in sonar/jacoco exclusions..	
+
+ Mockito, mock stubbbing, practice by commenting annotations..
