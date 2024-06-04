@@ -1928,8 +1928,37 @@ TDD & BDD..
 
 Annotations :
 	@Test, @AfterEach, @AfterAll, @BeforeEach, @BeforeAll
+	@WebMvcTest,@DataJpaTest, @ExtendWith(MockitoExtension.class) // to initialize your mocks or 
+	in BeforeEach ::  MockitoAnnotations.initMocks(this);
+	@InjectMocks -> on a class where you stub the mock objects, @Mock, @MockBean
+				In summary, use @Mock when you want to create mock objects within a test class, and use @MockBean when you want to mock or replace Spring beans in the application context during integration testing
+
+
 
 Tests : normal classes where your have functions..
-we shall not write a test case for application main method, interface, enum --> exclude in sonar/jacoco exclusions..	
+we shall not write a test case for application main method, interface, enum, dto, entity classes--> exclude in sonar/jacoco exclusions..	
 
- Mockito, mock stubbbing, practice by commenting annotations..
+ Mockito, mock vs stubbbing, practice by commenting annotations..
+
+ sonarqube -> quality monitoring system
+ 	1. sonar coverage (how much % of your code is covered with test cases -> 80-85%)
+ 	2. detect bugs(major, minor, critical, code smells (rules applied by the org on the product quality)
+Integrate tool as plugin or download the tool and link with the application.
+
+Line Coverage/Method Coverage..
+
+Condition coverage :
+
+	a is a number && or || a > 0 -> test cases for this
+
+		1. a is a number (true) & a > 0 (true)
+		2. true & false
+		3. false & true (logically not possible with && but you can check for a || )
+		4. false & false
+
+Testing :
+	1. junit testing -> backend and ui, write cases separately..
+	2. code level testing (ctrl -> db flow test), localhost debugging
+	3. integrate test -> ui and backend (go to app and test)
+		a. end - to - end
+		b. sanity tests		
