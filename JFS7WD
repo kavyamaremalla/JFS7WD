@@ -1870,6 +1870,74 @@ ms communication
 	- Spring Open Feign
 	- Web Client 
 
+05/06/24:
+
+service registry -> track number of ms & it's instances..
+	-> netflix introduced the eureka server
+
+ms (clients) to server
+
+Added eureka client dependency in pom.xml of ms..
+Created a eureka server through spring initializr
+ 	 1. application -> @EnableEurekaServer
+ 	 2. app.props -> eureka server
+ 	 3. register your ms with eureka server by adding thri prop in your app.props
+ 	 		eureka.instance.client.serverUrl.defaultZone:http://localhost:8761/eureka
+
+mvn -> maven
+	mvn clean install -DskipTests=true
+
+	1. clean -> delete target folder
+	2. install -> run all the maven profiles
+	3. validate -> if your app is fine
+	4. compile -> check for compilation errors & generate a report
+	5. test -> junit tests
+	6. package -> execute all phases till package
+
+	jar - artifact id & version -> name
+
+For instance :(mvn clean install) go to local target folder ->cmd here and command : java -jar -Dserver.port=9091 employee-service-0.0.1-SNAPSHOT.jar
+
+Load Balancing : LB
+	8080 -> 5 req
+	8081 -> 5 req
+
+Eureka client -> can distribute load among the ports	
+
+API Gateway -> service-registry -> fwds req to your ms (emp/dept/any other registered service)
+
+Config Sever :
+
+	put your app.props in git/sv/other ditributed systems
+
+emp-service ::: http://localhost:9090/actuator/refresh -> when ever we update the properties of a ms, latest will be picked by application without restarting the app. http://localhost:8080/actuator/refresh - for dept service
+
+
+spring cloud bus ---> msg broker --> app to broadcast our msgs ( for all the ms endpoints)
+	kafka, rabbitMq, ApacheMq..
+
+configuring rabbitmq : dependency in ms and following props in app.prop
+
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=guest
+spring.rabbitmq.password=guest
+
+http://localhost:anyMSPort/actuator/busrefresh --> Post endpoint ., all the ms's app.properties will be updated.
+
+get employee -> emp-service & internally it's calling dept-service..
+
+to track your api call -> distributed tracing..
+	-> all the ms & api gateway
+	-> customise your tracing pattern --> debug,info,error..
+
+	http://localhost:9411/zipkin/ -> to track calls
+
+If dep-service is down., end-point : http://localhost:9191/api/employees/1	should still work..
+	1. add circuit breaker dependency and spring-aop dependency
+	2. make changes in impl part to bring default details when the dept-service is down..
+
+	retry aspect order, wait duration -> read about more resilience features..
 
 03/06/34:
 
@@ -1940,7 +2008,7 @@ we shall not write a test case for application main method, interface, enum, dto
 
  Mockito, mock vs stubbbing, practice by commenting annotations..
 
- sonarqube -> quality monitoring system
+ sonarqube -> quality monitoring system/jacoco plugin
  	1. sonar coverage (how much % of your code is covered with test cases -> 80-85%)
  	2. detect bugs(major, minor, critical, code smells (rules applied by the org on the product quality)
 Integrate tool as plugin or download the tool and link with the application.
@@ -1962,3 +2030,18 @@ Testing :
 	3. integrate test -> ui and backend (go to app and test)
 		a. end - to - end
 		b. sanity tests		
+
+07/06/24:
+
+sample mini projects..
+
+todo application.. built on top of spring security
+
+	spring thyme leaf -> you can build a UI..
+
+	1. S.O.L.I.D Principles
+	2. Design Patterns
+	3. D.S.A	
+
+node modules : npm install, npm i axios
+to start react app -> npm run dev
