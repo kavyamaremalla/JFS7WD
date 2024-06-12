@@ -2045,3 +2045,62 @@ todo application.. built on top of spring security
 
 node modules : npm install, npm i axios
 to start react app -> npm run dev
+
+11/06/24:
+
+Spring Boot + Thymeleaf 
+
+Thymeleaf : substitute of JSP
+	Java template/framework
+	html/xml/css/js/xhtml
+	server side template(servlet + offline)
+	fast processing
+	logic -> DOM..
+
+Thymeleaf templates can be:
+	HTML (HTML5, XHTML 1.0/1.1, HTML 4)
+	XML.
+	TEXT (plain text)
+	JAVASCRIPT (. js files)
+	CSS (. css files)
+
+classes & packages -> coded
+
+	ctrlr -> 
+		thymeleaf -> iterate over list of employees & generate a dynamic content as per the user provided template
+
+	how html is binded in thymeleaf
+
+12/06/24 :
+
+update & addnewemployee -> *{} & ${} for binding
+
+loggers -> debug the application..
+
+mini project/capstone project :
+	1. build a backend application
+	2. spring data jpa -> use sql or a non-sql
+	3. apply spring security
+	4. build an UI
+	5. react, angular, thymeleaf -> integrate your UI & backend  
+	6. junit test cases
+	7. swagger & documentation.. (setup -> installing jdk, eclipse tool, ui tool ; how to run your project, validations of your application)
+
+logging levels: 
+
+	error : for a non-recoverable (you have to resolve)
+	warning : recoverable error
+	info : for tracing the api call
+	debug : investigation
+	trace : detailed investigation
+
+Intro to AWS :
+
+Why cloud?
+
+	traditional on-premise server -> physical server
+	cloud server -> hosted in cloud, not physical
+
+Official aws docs : https://docs.aws.amazon.com/
+
+pay as you use -> free tier., defined costs..
