@@ -2104,3 +2104,24 @@ Why cloud?
 Official aws docs : https://docs.aws.amazon.com/
 
 pay as you use -> free tier., defined costs..
+
+html, css & js -> build your resume
+traditional resume :
+https://flowcv.com/
+
+13/06/24:
+
+docker -> to build, deploy and test your apps, you can use docker to deploy your apps to aws
+kubernetes -> automation s/w deployment, scaling, management of containers
+jenkins -> to build your applications on to server (AWS, GCP etc)
+
+1. create an account into aws 
+2. root user -> like admin user, root user provides all access through IAM and create an iam(Identity & Access Management) user
+3. EC2 -> elastic compute cloud
+4. AZ -> avaliability Zones
+
+full-stack --> boot + react/angular with mysql -> AWS | Beanstalk | Amazon S3(Simple Storage Service) | RDS (Relational Database Service)
+
+	- create rds with mysql instance -> you will get hostname
+	- domain name, properties of the created sql -> keep in your app.props of backend app
+	- create  a jar file & deploy to aws using EBS (Elastic Bean Stalk)
